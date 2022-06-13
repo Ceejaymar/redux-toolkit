@@ -5,10 +5,18 @@ const initialState = [
   { id: '2', title: 'Slices...', content: 'The more I say slice, the more I want pizza.' }
 ];
 
-const postsSlices = createSlice({
+const postsSlice = createSlice({
   name: 'posts',
   initialState,
-  reducers: {}
+  reducers: {
+     postAdded(state, action) {
+       state.push(action.payload);
+     }
+  }
 });
 
-export default postsSlices;  
+export const selectAllPosts = (state) => state.posts;
+
+export const { postAdded } = postsSlice.actions;
+
+export default postsSlice.reducer;
