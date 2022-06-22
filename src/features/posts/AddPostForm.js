@@ -1,4 +1,7 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { nanoid } from '@reduxjs/toolkit'; // to create randomID
+import { postAdded } from './postsSlice';
 
 const AddPostForm = () => {
   const [title, setTitle] = React.useState('');
@@ -6,6 +9,21 @@ const AddPostForm = () => {
 
   const onTitleChanged = e => setTitle(e.target.value);
   const onContentChanged = e => setContent(e.target.value);
+
+  const onSavePostClicked = () => {
+    if (title && content) {
+      dispatch(
+        postAdded({
+          id: nanoid(),
+          title,
+          content
+        })
+      )
+
+      setTitle('');
+      setContent('');
+    }
+  }
 
   return (
     <section>
@@ -26,7 +44,7 @@ const AddPostForm = () => {
           value={content}
           onChange={onContentChanged}
         />
-        <button type="button">Save Post</button>
+        <button type="button" onClick={onSavePostClicked}>Save Post</button>
       </form>
     </section>
   )
