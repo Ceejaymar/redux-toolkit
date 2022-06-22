@@ -4,6 +4,7 @@ import { nanoid } from '@reduxjs/toolkit'; // to create randomID
 import { postAdded } from './postsSlice';
 
 const AddPostForm = () => {
+  const dispatch = useDispatch();
   const [title, setTitle] = React.useState('');
   const [content, setContent] = React.useState('');
 
