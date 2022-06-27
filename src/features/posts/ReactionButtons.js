@@ -6,8 +6,9 @@ const reactionEmoji = {
   wow: '😲',
   heart: '❤️',
   rocket: '🚀',
+  tea: '🍵'
 }
-  
+
 const ReactionButtons = ({ post }) => {
   const dispatch = useDispatch();
 
@@ -18,7 +19,7 @@ const ReactionButtons = ({ post }) => {
         type="button"
         className="reactionButton"
         onClick={
-          () => dispatch(reactionAdded({  postId: post.id, reaction: name }))
+          () => dispatch(reactionAdded({ postId: post.id, reaction: name }))
         }
       >
         {emoji} {post.reactions[name]}
