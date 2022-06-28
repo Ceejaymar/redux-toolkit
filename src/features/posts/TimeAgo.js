@@ -1,4 +1,4 @@
-import { parseISO, formatDistanceToNow } from "date-fns";
+import { parseISO, formatDistanceToNow } from 'date-fns';
 
 const TimeAgo = ({ timeStamp }) => {
   let timeAgo = '';
@@ -14,7 +14,7 @@ const TimeAgo = ({ timeStamp }) => {
     <span title={timeStamp}>
       &nbsp; <i>{timeAgo}</i>
     </span>
-  )
-}
+  );
+};
 
 export default TimeAgo;
